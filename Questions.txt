@@ -1,0 +1,64 @@
+Q1.Given a positive integer n, return the punishment number of n.
+The punishment number of n is defined as the sum of the squares of all integers i such that:
+1 <= i <=
+The decimal representation of i * i can be partitioned into contiguous substrings such that the sum of the integer values of these substrings equals i.
+ 
+
+Example 1:
+
+Input: n = 10
+Output: 182
+Explanation: There are exactly 3 integers i in the range [1, 10] that satisfy the conditions in the statement:
+- 1 since 1 * 1 = 1
+- 9 since 9 * 9 = 81 and 81 can be partitioned into 8 and 1 with a sum equal to 8 + 1 == 9.
+- 10 since 10 * 10 = 100 and 100 can be partitioned into 10 and 0 with a sum equal to 10 + 0 == 10.
+Hence, the punishment number of 10 is 1 + 81 + 100 = 182
+
+Q2.Given an integer array nums of unique elements, return all possible subsets (the power set).
+
+The solution set must not contain duplicate subsets. Return the solution in any order.
+
+ 
+
+Example 1:
+
+Input: nums = [1,2,3]
+Output: [[],[1],[2],[1,2],[3],[1,3],[2,3],[1,2,3]]
+Example 2:
+
+Input: nums = [0]
+Output: [[],[0]]
+
+Q3.Given an array of distinct integers candidates and a target integer target, return a list of all unique combinations of candidates where the chosen numbers sum to target. You may return the combinations in any order.
+The same number may be chosen from candidates an unlimited number of times. Two combinations are unique if the frequency of at least one of the chosen numbers is different.
+The test cases are generated such that the number of unique combinations that sum up to target is less than 150 combinations for the given input.
+ 
+Example 1:
+
+Input: candidates = [2,3,6,7], target = 7
+Output: [[2,2,3],[7]]
+Explanation:
+2 and 3 are candidates, and 2 + 2 + 3 = 7. Note that 2 can be used multiple times.
+7 is a candidate, and 7 = 7.
+These are the only two combinations.
+Example 2:
+
+Input: candidates = [2,3,5], target = 8
+Output: [[2,2,2,2],[2,3,3],[3,5]]
+Example 3:
+
+Input: candidates = [2], target = 1
+Output: []
+
+Q4.Given an array arr[] and a target, your task is to find all unique combinations in the array where the sum of the elements is equal to target. Each element in arr[] can be used at most once in the combination.
+Note: You can return your answer in any order, the driver code will print them in sorted order.
+Test cases are generated such that number of unique combination does not exceed 106.
+
+Examples:
+
+Input: arr[] = [1, 2, 3], target = 5
+Output: [[2, 3]]
+Explanation: There is only one unique combinations whose sum is equal to the target.
+Input: arr[] = [1, 3, 2, 2, 2], target = 4
+Output: [[1, 3], [2, 2]]
+Explanation: There are two unique possible combinations whose sum is equal to target.
