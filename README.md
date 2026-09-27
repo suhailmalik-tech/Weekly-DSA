@@ -1,0 +1,1 @@
+The whole purpose of this repository is to Solve 5-10 Problems of Weak DSA Topics Questions by Weekend
