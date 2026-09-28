@@ -103,4 +103,66 @@ class Solution:
         back(0, [], target)
         return res
                 
+        #Solution-Q5#
+
+class Solution:
+    def combine(self, n: int, k: int) -> list[list[int]]:
+        res = []
+        
+        def backtrack(index, curr_path):
+            if len(curr_path) == k:
+                res.append(curr_path.copy())
+                return
+
+            for i in range(index, n+1):
+                curr_path.append(i)
+                backtrack(i + 1,  curr_path)
+                curr_path.pop()
+
+        backtrack(1, [])
+        return res
+
+
+        #Solution-Q6#
+
+class Solution:
+    def isAdditiveNumber(self, num: str) -> bool:
+        n = len(num)
+        is_Additive = False
+
+        def backtrack(index:int, num1:int, num2:int, count:int ):
+            if index == n:
+                return count >= 3
+
+            expected_sum = num1 + num2
+            expected_str = str(expected_sum)
+
+            if not num.startswith(expected_str, index):
+                return False
+
+
+            return backtrack(index + len(expected_str), num2 , expected_sum, count + 1)
+        
+        for i in range(1, n // 2 + 1):
+            if num[0] == '0' and i > 1:
+                break
+
+            n1 = int(num[:i])
+
+            for j in range(1,n):
+                if max(i,j) > n - i - j:
+                    break
+
+                if num[i] == '0' and j > 1:
+                    break
+
+                n2 = int(num[i:i+j])
+
+                if backtrack(i + j, n1, n2, 2):
+                    return True
+
+        return False
+
+
+
         
