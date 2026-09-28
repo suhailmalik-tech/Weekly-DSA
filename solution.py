@@ -165,4 +165,91 @@ class Solution:
 
 
 
+        #Solution-Q7#
+
+
+class Solution:
+    def subsetsWithDup(self, nums: list[int]) -> list[list[int]]:
+        nums.sort()
+        res = []
+        seen = set()
+        def backtrack(idx, curr):
+
+            if tuple(curr) not in seen:
+                seen.add(tuple(curr))
+
+                res.append(curr.copy())
+
+            else:
+                pass
+
+            for i in range(idx, len(nums)):
+                curr.append(nums[i])
+                backtrack(i + 1, curr)
+                curr.pop()
+
+        backtrack(0, [])
+        return res
+
+
+        
+        #Solution-Q8#
+
+class Solution:
+    def permute(self, nums: list[int]) -> list[list[int]]:
+        res = []
+        visited = set()
+
+        def backtrack(curr_path):
+            if len(curr_path) == len(nums):
+                res.append(curr_path.copy())
+                return
+
+            for i in range(len(nums)):
+                if i in visited:
+                    continue
+                
+
+                visited.add(i)
+                curr_path.append(nums[i])
+                backtrack(curr_path)
+                curr_path.pop()
+                visited.remove(i)
+
+        backtrack([])
+        return res
+            
+
+        #Solution-Q9#
+
+
+class Solution:
+    def permuteUnique(self, nums: list[int]) -> list[list[int]]:
+        nums.sort()
+        res = []
+        visited = set()
+
+        def backtrack(curr_path):
+            if len(curr_path) == len(nums):
+                res.append(curr_path.copy())
+                return
+
+            for i in range(len(nums)):
+                if i in visited:
+                    continue
+                if i > 0 and nums[i] == nums[i - 1] and (i - 1) not in visited:
+                    continue
+                
+                
+                visited.add(i)
+                curr_path.append(nums[i])
+                backtrack(curr_path)
+                curr_path.pop()
+                visited.remove(i)
+
+                
+
+        backtrack([])
+        return res
+            
         
